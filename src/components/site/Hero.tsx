@@ -102,7 +102,7 @@ export function Hero() {
               <p className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
                 Weekly Reach
               </p>
-              <p className="mt-1 text-2xl font-bold text-gradient">2.4M</p>
+              <p className="mt-1 text-2xl font-bold text-foreground">2.4M</p>
               <div className="mt-3 flex h-10 items-end gap-1">
                 {[30, 55, 40, 72, 60, 88, 100].map((h, i) => (
                   <span
