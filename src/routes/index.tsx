@@ -1,24 +1,48 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { Hero, Nav } from "@/components/site/Hero";
+import { Proof } from "@/components/site/Proof";
+import { Ugc, ViralWork } from "@/components/site/Work";
+import { Process } from "@/components/site/Process";
+import { Organic } from "@/components/site/Organic";
+import { AdCreatives, AdResults } from "@/components/site/Ads";
+import { FinalCta, Footer, Services, Testimonials } from "@/components/site/Closing";
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
+const title = "IT-TrendCo — Social Media Marketing Agency";
+const description =
+  "IT-TrendCo creates, manages and scales your social media: content production, organic growth, community management and performance advertising.";
+
 export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title },
+      { name: "description", content: description },
+      { property: "og:title", content: title },
+      { property: "og:description", content: description },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+  }),
   component: Index,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
 function Index() {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
+    <div className="relative min-h-screen overflow-x-hidden bg-background">
+      <Nav />
+      <main>
+        <Hero />
+        <Proof />
+        <ViralWork />
+        <Ugc />
+        <Process />
+        <Organic />
+        <AdCreatives />
+        <AdResults />
+        <Services />
+        <Testimonials />
+        <FinalCta />
+      </main>
+      <Footer />
     </div>
   );
 }
